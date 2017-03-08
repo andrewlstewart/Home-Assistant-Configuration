@@ -33,23 +33,23 @@ sun:
 # Discover some devices automatically
 discovery:
 
-http: !include ./configuration/http.yaml
-mqtt: !include ./configuration/mqtt.yaml
+http:           !include ./configuration/http.yaml
+mqtt:           !include ./configuration/mqtt.yaml
 
-media_player: !include ./configuration/media_player.yaml
-remote: !include ./configuration/remote.yaml
-emulated_hue: !include ./configuration/emulated_hue.yaml
+media_player:   !include ./configuration/media_player.yaml
+remote:         !include ./configuration/remote.yaml
+emulated_hue:   !include ./configuration/emulated_hue.yaml
 
-notify: !include ./configuration/notify.yaml
+notify:         !include ./configuration/notify.yaml
 
-switch: !include ./configuration/switch.yaml
-light: !include ./configuration/light.yaml
-input_select: !include ./configuration/input_select.yaml
-sensor: !include ./configuration/sensor.yaml
-binary_sensor: !include ./configuration/binary_sensor.yaml
+switch:         !include ./configuration/switch.yaml
+light:          !include ./configuration/light.yaml
+input_select:   !include ./configuration/input_select.yaml
+sensor:         !include ./configuration/sensor.yaml
+binary_sensor:  !include ./configuration/binary_sensor.yaml
 device_tracker: !include ./configuration/device_tracker.yaml
 
-scene: !include ./configuration/scene.yaml
-group: !include ./configuration/group.yaml
+scene:          !include ./configuration/scene.yaml
+group:          !include ./configuration/group.yaml
 
-automation: !include_dir_merge_list ./configuration/automation
+automation:     !include_dir_merge_list ./configuration/automation
