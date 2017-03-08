@@ -11,14 +11,14 @@
         state: "Away"
         for:
           hours: 0
-          minutes: 15
+          minutes: 10
           seconds: 0
       - condition: state
         entity_id: device_tracker.chaos_presence_sensor
         state: "Away"
         for:
           hours: 0
-          minutes: 15
+          minutes: 10
           seconds: 0
       - condition: or
         conditions:
