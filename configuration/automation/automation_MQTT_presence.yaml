@@ -1,0 +1,51 @@
+- alias: Send a readable Andrew's home MQTT command based on presence detection
+  trigger:
+    platform: state
+    entity_id: sensor.andrews_smartthings_sensor
+#      from: "Away"
+    to: "Home"
+  action:
+    service: mqtt.publish
+    data:
+      payload: "Home"
+      topic: "people/andrew/presence"
+      qos: 0
+
+- alias: Send a readable Andrew's away MQTT command based on presense detection
+  trigger:
+    platform: state
+    entity_id: sensor.andrews_smartthings_sensor
+#      from: "Home"
+    to: "Away"
+  action:
+    service: mqtt.publish
+    data:
+      payload: "Away"
+      topic: "people/andrew/presence"
+      qos: 0
+
+- alias: Send a readable Chao's home MQTT command based on presence detection
+  trigger:
+    platform: state
+    entity_id: sensor.chaos_smartthings_sensor
+#      from: "Away"
+    to: "Home"
+  action:
+    service: mqtt.publish
+    data:
+      payload: "Home"
+      topic: "people/chao/presence"
+      qos: 0
+
+- alias: Send a readable Chao's away MQTT command based on presense detection
+  trigger:
+    platform: state
+    entity_id: sensor.chaos_smartthings_sensor
+#      from: "Home"
+    to: "Away"
+  action:
+    service: mqtt.publish
+    data:
+      payload: "Away"
+      topic: "people/chao/presence"
+      qos: 0

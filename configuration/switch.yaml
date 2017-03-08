@@ -1,0 +1,15 @@
+- platform: mqtt
+  name: "Chromecast"
+  command_topic: "virtualswitch/chromecast"
+- platform: mqtt
+  name: "Xiaomi box"
+  command_topic: "virtualswitch/xiaomi_box"
+- platform: mqtt
+  name: "Miracast"
+  command_topic: "virtualswitch/miracast"
+- platform: mqtt
+  name: "Records"
+  command_topic: "virtualswitch/records"
+- platform: mqtt
+  name: "Chromecast audio"
+  command_topic: "virtualswitch/chromecast_audio"

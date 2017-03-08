@@ -1,0 +1,10 @@
+- platform: mqtt
+  state_topic: "smartthings/Front Door/contact"
+  name: "Front door"
+  device_class: opening
+  value_template: '{% if value == "open" %}ON{% else %}OFF{% endif %}'
+- platform: mqtt
+  state_topic: "smartthings/Motion Sensor/motion"
+  name: "Living room"
+  device_class: motion
+  value_template: '{% if value == "active" %}ON{% else %}OFF{% endif %}'

@@ -1,0 +1,18 @@
+light.kitchen_blinds:
+  friendly_name: Dining room blinds
+  icon: mdi:blinds
+  emulated_hue: true
+light.andrews_bedside_table_light:
+  emulated_hue: true
+light.bedroom_light:
+  emulated_hue: true
+light.desk_lamp:
+  emulated_hue: true
+light.dining_room_light:
+  emulated_hue: true
+light.entrance_light:
+  emulated_hue: true
+light.kitchen_light:
+  emulated_hue: true
+light.tall_lamp:
+  emulated_hue: true

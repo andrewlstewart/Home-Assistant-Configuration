@@ -1,0 +1,10 @@
+- platform: mqtt
+  devices:
+    Andrews_presence_sensor: people/andrew/presence
+    Chaos_presence_sensor: people/chao/presence
+#    state_topic: ""
+#    value_template: '{% if value == "not present" %}Away{% else %}Home{% endif %}'
+#  - platform: mqtt
+#    name: "Chao's presence sensor"
+#    state_topic: "smartthings/Chao's Arrival Sensor/presence"
+#    value_template: '{% if value == "not present" %}Away{% else %}Home{% endif %}'

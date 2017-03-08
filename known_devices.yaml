@@ -1,0 +1,14 @@
+
+andrews_presence_sensor:
+  name: Andrew
+  mac: 
+  picture: /local/AndrewsArrivalSensor.png
+  track: yes
+  hide_if_away: no
+
+chaos_presence_sensor:
+  name: Chao
+  mac: 
+  picture: /local/ChaosArrivalSensor.png
+  track: yes
+  hide_if_away: no

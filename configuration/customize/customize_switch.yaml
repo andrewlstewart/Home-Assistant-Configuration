@@ -1,0 +1,15 @@
+switch.chromecast:
+  emulated_hue: true
+  hidden: true
+switch.chromecast_audio:
+  emulated_hue: true
+  hidden: true
+switch.miracast:
+  emulated_hue: true
+  hidden: true
+switch.records:
+  emulated_hue: true
+  hidden: true
+switch.xiaomi_box:
+  emulated_hue: true
+  hidden: true

@@ -1,0 +1,55 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret latitude
+  longitude: !secret longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 10
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Vancouver
+  customize: !include_dir_merge_named ./configuration/customize
+
+# Enables the frontend
+frontend:
+
+# Checks for available updates
+updater:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Discover some devices automatically
+discovery:
+
+http: !include ./configuration/http.yaml
+mqtt: !include ./configuration/mqtt.yaml
+
+media_player: !include ./configuration/media_player.yaml
+remote: !include ./configuration/remote.yaml
+emulated_hue: !include ./configuration/emulated_hue.yaml
+
+notify: !include ./configuration/notify.yaml
+
+switch: !include ./configuration/switch.yaml
+light: !include ./configuration/light.yaml
+input_select: !include ./configuration/input_select.yaml
+sensor: !include ./configuration/sensor.yaml
+binary_sensor: !include ./configuration/binary_sensor.yaml
+device_tracker: !include ./configuration/device_tracker.yaml
+
+scene: !include ./configuration/scene.yaml
+group: !include ./configuration/group.yaml
+
+automation: !include_dir_merge_list ./configuration/automation

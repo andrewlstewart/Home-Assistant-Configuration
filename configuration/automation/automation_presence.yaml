@@ -1,0 +1,89 @@
+- alias: Turn on entrance light when home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.andrews_presence_sensor
+        state: "Away"
+        for:
+          hours: 0
+          minutes: 15
+          seconds: 0
+      - condition: state
+        entity_id: device_tracker.chaos_presence_sensor
+        state: "Away"
+        for:
+          hours: 0
+          minutes: 15
+          seconds: 0
+      - condition: or
+        conditions:
+        - condition: sun
+          after: sunset
+          after_offset: "-1:00:00"
+        - condition: sun
+          before: sunrise
+          before_offset: "1:00:00"
+  action:
+    service: light.turn_on
+    entity_id: light.entrance_light
+
+- alias: Turn off all lights when Andrew's leaving
+  trigger:
+    platform: state
+    entity_id: device_tracker.andrews_presence_sensor
+    to: "Away"
+    for:
+      minutes: 5
+  condition:
+    condition: state
+    entity_id: device_tracker.chaos_presence_sensor
+    state: "Away"
+  action:
+    service: light.turn_off
+    entity_id:
+      - group.lights
+      - light.bedroom_light
+      - light.andrews_bedside_table_light
+
+- alias: Turn off all lights when Chao's leaving
+  trigger:
+    platform: state
+    entity_id: device_tracker.chaos_presence_sensor
+    to: "Away"
+    for:
+      minutes: 5
+  condition:
+    condition: state
+    entity_id: device_tracker.andrews_presence_sensor
+    state: "Away"
+  action:
+    service: light.turn_off
+    entity_id:
+      - group.lights
+      - light.bedroom_light
+      - light.andrews_bedside_table_light
+
+- alias: Send Andrew a message if door opens without people home
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door
+    to: "on"
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.andrews_presence_sensor
+        state: "Away"
+      - condition: state
+        entity_id: device_tracker.chaos_presence_sensor
+        state: "Away"
+  action:
+    service: notify.op3
+    data:
+      message: "Someone's in your base killing your mans."
+      title: "Front door opened..."

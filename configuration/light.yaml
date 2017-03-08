@@ -1,0 +1,52 @@
+- platform: mqtt
+  name: "Desk lamp"
+  state_topic: "smartthings/Desk Lamp/switch"
+  command_topic: "smartthings/Desk Lamp/switch"
+  payload_on: "on"
+  payload_off: "off"
+- platform: mqtt
+  name: "Kitchen blinds"
+  state_topic: "kitchen/chaosblinds"
+  command_topic: "kitchen/chaosblinds"
+  qos: 0
+  payload_on: 1
+  payload_off: 0
+  optimistic: false
+- platform: mqtt
+  name: "Tall lamp"
+  state_topic: "smartthings/Tall Lamp/switch"
+  command_topic: "smartthings/Tall Lamp/switch"
+  payload_on: "on"
+  payload_off: "off"
+- platform: mqtt
+  name: "Dining room light"
+  state_topic: "smartthings/Dining Room Light/switch"
+  command_topic: "smartthings/Dining Room Light/switch"
+  payload_on: "on"
+  payload_off: "off"
+- platform: mqtt
+  name: "Bedroom light"
+  state_topic: "smartthings/Bedroom Light/switch"
+  command_topic: "smartthings/Bedroom Light/switch"
+  payload_on: "on"
+  payload_off: "off"
+- platform: mqtt
+  name: "Andrew's bedside table light"
+  state_topic: "smartthings/Andrew's Bedside Table Light/switch"
+  command_topic: "smartthings/Andrew's Bedside Table Light/switch"
+  brightness_state_topic: "smartthings/Andrew's Bedside Table Light/level"
+  brightness_command_topic: "smartthings/Andrew's Bedside Table Light/level"
+  payload_on: "on"
+  payload_off: "off"
+- platform: mqtt
+  name: "Entrance light"
+  state_topic: "smartthings/Entrance Light/switch"
+  command_topic: "smartthings/Entrance Light/switch"
+  payload_on: "on"
+  payload_off: "off"
+- platform: mqtt
+  name: "Kitchen light"
+  state_topic: "smartthings/Kitchen Light/switch"
+  command_topic: "smartthings/Kitchen Light/switch"
+  payload_on: "on"
+  payload_off: "off"

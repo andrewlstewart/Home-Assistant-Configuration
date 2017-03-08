@@ -1,0 +1,21 @@
+sensor.dark_sky_precip_probability:
+  friendly_name: Percent chance of rain
+  icon: mdi:weather-rainy
+sensor.dark_sky_humidity:
+  friendly_name: Humidity
+  icon: mdi:water-percent
+sensor.dark_sky_summary:
+  friendly_name: Summary
+sensor.dark_sky_pressure:
+  friendly_name: Pressure
+  icon: mdi:cloud-sync
+sensor.dark_sky_temperature:
+  friendly_name: Outdoor temperature
+sensor.current_activity:
+  entity_picture: /local/HarmonyLogo.png
+sensor.andrews_smartthings_sensor:
+  hidden: true
+sensor.chaos_smartthings_sensor:
+  hidden: true
+sensor.sonarr_upcoming:
+  friendly_name: Upcoming TV

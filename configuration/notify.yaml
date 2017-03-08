@@ -1,0 +1,4 @@
+- platform: joaoapps_join
+  device_id: !secret notify_device_id
+  name: OP3
+  api_key: !secret notify_api

@@ -1,0 +1,46 @@
+- platform: darksky
+  api_key: !secret sensor_darksky_api
+  monitored_conditions:
+    - summary
+    - precip_probability
+    - temperature
+    - humidity
+    - pressure
+
+- platform: sonarr
+  api_key: !secret sensor_sonarr_api
+  host: 192.168.0.114
+  port: 38082
+  monitored_conditions:
+    - upcoming
+  days: 3
+
+- platform: template
+  sensors:
+    current_activity:
+      friendly_name: 'Current Activity'
+      value_template: '{{ states.remote.harmonyhub.attributes.current_activity }}'
+
+#####
+##### MQTT Sensors
+#####
+- platform: mqtt
+  state_topic: "smartthings/Andrew's Arrival Sensor/presence"
+  name: "Andrew's Smartthings Sensor"
+  value_template: '{% if value == "not present" %}Away{% else %}Home{% endif %}'
+
+- platform: mqtt
+  state_topic: "smartthings/Chao's Arrival Sensor/presence"
+  name: "Chao's Smartthings Sensor"
+  value_template: '{% if value == "not present" %}Away{% else %}Home{% endif %}'
+#{"topic": "smartthings/Andrew's Arrival Sensor/presence","payload": "present"}
+
+- platform: mqtt
+  state_topic: 'smartthings/Motion Sensor/temperature'
+  name: 'Living room temperature'
+  unit_of_measurement: '°C'
+
+- platform: mqtt
+  state_topic: 'smartthings/Front Door/temperature'
+  name: 'Entrance temperature'
+  unit_of_measurement: '°C'

@@ -1,0 +1,12 @@
+- name: TV watching lights
+  entities:
+    light.desk_lamp: off
+    light.tall_lamp: off
+    light.entrance_light: off
+    light.kitchen_blinds: off
+    light.dining_room_light: off
+- name: Return to normal
+  entities:
+    light.desk_lamp: on
+    light.tall_lamp: on
+    light.kitchen_blinds: on

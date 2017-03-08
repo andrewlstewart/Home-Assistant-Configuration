@@ -1,0 +1,11 @@
+harmony:
+  name: Harmony Control
+  options:
+    - Select Input
+    - Chromecast
+    - Records
+    - Xiaomi Box
+    - Chromecast audio
+    - Miracast
+    - Power Off
+  icon: mdi:monitor

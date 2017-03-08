@@ -1,0 +1,287 @@
+- alias: Harmony
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.harmony
+    from: 'Select Input'
+  action:
+    - service: switch.turn_on
+      data_template:
+        entity_id: >
+          {% if is_state("input_select.harmony", "Chromecast") %}
+            switch.chromecast
+          {% elif is_state("input_select.harmony", "Xiaomi Box") %}
+            switch.xiaomi_box
+          {% elif is_state("input_select.harmony", "Miracast") %}
+            switch.miracast
+          {% elif is_state("input_select.harmony", "Records") %}
+            switch.records
+          {% elif is_state("input_select.harmony", "Chromecast audio") %}
+            switch.chromecast_audio
+          {% else %}
+          {% endif %}
+    - service: input_select.select_option
+      entity_id: input_select.harmony
+      data_template:
+        option: "Select Input"
+
+- alias: Harmony Light Control - Start
+  hide_entity: true
+  trigger: 
+    - platform: state
+      entity_id: 
+        - switch.chromecast
+        - switch.xiaomi_box
+        - switch.miracast
+      to: 'on'
+  action:
+    service: scene.turn_on
+    entity_id: scene.tv_watching_lights
+
+- alias: Harmony Off
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: input_select.harmony
+    to: 'Power Off'
+  action:
+    - service: remote.turn_off
+      entity_id: remote.harmonyhub
+    - service: input_select.select_option
+      entity_id: input_select.harmony
+      data_template:
+        option: "Select Input"
+    - service: scene.turn_on
+      entity_id: scene.return_to_normal
+    - service: switch.turn_off
+      entity_id:
+        - switch.chromecast
+        - switch.xiaomi_box
+        - switch.miracast
+        - switch.records
+        - switch.chromecast_audio
+
+- alias: Harmony records on
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.records
+    to: 'on'
+  action:
+    - service: remote.turn_on
+      entity_id: remote.harmonyhub
+      data_template:
+        activity: 10639000
+    - service: switch.turn_off
+      entity_id:
+        - switch.chromecast
+        - switch.xiaomi_box
+        - switch.miracast
+        - switch.chromecast_audio
+
+- alias: Harmony records off
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.records
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.chromecast
+        state: 'off'
+      - condition: state
+        entity_id: switch.xiaomi_box
+        state: 'off'
+      - condition: state
+        entity_id: switch.chromecast_audio
+        state: 'off'
+      - condition: state
+        entity_id: switch.miracast
+        state: 'off'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.harmony
+    data_template:
+      option: "Power Off"
+
+- alias: Harmony chromecast on
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.chromecast
+    to: 'on'
+  action:
+    - service: remote.turn_on
+      entity_id: remote.harmonyhub
+      data_template:
+        activity: 10920590
+    - service: switch.turn_off
+      entity_id:
+        - switch.records
+        - switch.xiaomi_box
+        - switch.miracast
+        - switch.chromecast_audio
+
+- alias: Harmony chromecast off
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.chromecast
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.records
+        state: 'off'
+      - condition: state
+        entity_id: switch.xiaomi_box
+        state: 'off'
+      - condition: state
+        entity_id: switch.chromecast_audio
+        state: 'off'
+      - condition: state
+        entity_id: switch.miracast
+        state: 'off'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.harmony
+    data_template:
+      option: "Power Off"
+
+- alias: Harmony xiaomi box on
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.xiaomi_box
+    to: 'on'
+  action:
+    - service: remote.turn_on
+      entity_id: remote.harmonyhub
+      data_template:
+        activity: 10638711
+    - service: switch.turn_off
+      entity_id:
+        - switch.records
+        - switch.chromecast
+        - switch.miracast
+        - switch.chromecast_audio
+
+- alias: Harmony xiaomi box off
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.xiaomi_box
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.records
+        state: 'off'
+      - condition: state
+        entity_id: switch.chromecast
+        state: 'off'
+      - condition: state
+        entity_id: switch.chromecast_audio
+        state: 'off'
+      - condition: state
+        entity_id: switch.miracast
+        state: 'off'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.harmony
+    data_template:
+      option: "Power Off"
+
+- alias: Harmony chromecast audio on
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.chromecast_audio
+    to: 'on'
+  action:
+    - service: remote.turn_on
+      entity_id: remote.harmonyhub
+      data_template:
+        activity: 11098266
+    - service: switch.turn_off
+      entity_id:
+        - switch.records
+        - switch.chromecast
+        - switch.miracast
+        - switch.xiaomi_box
+
+- alias: Harmony chromecast audio off
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.chromecast_audio
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.records
+        state: 'off'
+      - condition: state
+        entity_id: switch.chromecast
+        state: 'off'
+      - condition: state
+        entity_id: switch.xiaomi_box
+        state: 'off'
+      - condition: state
+        entity_id: switch.miracast
+        state: 'off'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.harmony
+    data_template:
+      option: "Power Off"
+
+- alias: Harmony miracast on
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.miracast
+    to: 'on'
+  action:
+    - service: remote.turn_on
+      entity_id: remote.harmonyhub
+      data_template:
+        activity: 10920622
+    - service: switch.turn_off
+      entity_id:
+        - switch.records
+        - switch.chromecast
+        - switch.chromecast_audio
+        - switch.xiaomi_box
+
+- alias: Harmony miracast off
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: switch.miracast
+    to: 'off'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: switch.records
+        state: 'off'
+      - condition: state
+        entity_id: switch.chromecast
+        state: 'off'
+      - condition: state
+        entity_id: switch.xiaomi_box
+        state: 'off'
+      - condition: state
+        entity_id: switch.chromecast_audio
+        state: 'off'
+  action:
+    service: input_select.select_option
+    entity_id: input_select.harmony
+    data_template:
+      option: "Power Off"

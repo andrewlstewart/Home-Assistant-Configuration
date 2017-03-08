@@ -1,0 +1,16 @@
+automation.send_a_readable_andrews_away_mqtt_command_based_on_presense_detection:
+  hidden: true
+automation.send_a_readable_andrews_home_mqtt_command_based_on_presence_detection:
+  hidden: true
+automation.send_a_readable_chaos_away_mqtt_command_based_on_presense_detection:
+  hidden: true
+automation.send_a_readable_chaos_home_mqtt_command_based_on_presence_detection:
+  hidden: true
+automation.turn_off_all_lights_when_andrews_leaving:
+  hidden: true
+automation.turn_off_all_lights_when_chaos_leaving:
+  hidden: true
+automation.send_andrew_a_message_if_door_opens_without_people_home:
+  hidden: true
+automation.turn_on_entrance_light_when_home:
+  hidden: true

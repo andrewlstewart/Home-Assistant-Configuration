@@ -1,0 +1,4 @@
+- platform: harmony
+  name: HarmonyHub
+  host: 192.168.0.102
+  port: 5222
